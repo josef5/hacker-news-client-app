@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../blocs/stories_provider.dart';
 import '../widgets/news_list_tile.dart';
+import '../widgets/refresh.dart';
 
 class NewsList extends StatelessWidget {
   const NewsList({Key? key}) : super(key: key);
@@ -28,14 +29,15 @@ class NewsList extends StatelessWidget {
             // return const Text('Still waiting on ids');
             return const Center(child: CircularProgressIndicator());
           }
-          return ListView.builder(
+
+          return Refresh(
+              child: ListView.builder(
             itemCount: snapshot.data!.length,
             itemBuilder: (context, int index) {
               bloc.fetchItem(snapshot.data![index]);
-              // return Text('${snapshot.data![index]}');
               return NewsListTile(itemId: snapshot.data![index]);
             },
-          );
+          ));
         });
   }
 }
