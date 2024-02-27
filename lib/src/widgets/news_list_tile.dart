@@ -43,7 +43,10 @@ class NewsListTile extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(context, '/${item.id}');
         },
-        title: Text(item.title),
+        title: Text(
+          item.title,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
         subtitle: Text('${item.score} points'),
         trailing: Column(
           children: <Widget>[

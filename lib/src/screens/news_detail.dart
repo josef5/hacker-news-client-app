@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import '../blocs/comments_provider.dart';
 import '../models/item_model.dart';
 import '../widgets/comment.dart';
@@ -16,6 +17,13 @@ class NewsDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail'),
+        titleTextStyle: const TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 24.0, color: Colors.black),
+        backgroundColor: Color(int.parse('FFFF6600', radix: 16)),
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark,
+        ),
       ),
       body: buildBody(bloc),
     );
